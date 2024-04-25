@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/apiGatway/pom.xml" />
         <option value="$PROJECT_DIR$/config-server/pom.xml" />
         <option value="$PROJECT_DIR$/discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/wecommerce/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

@@ -9,6 +9,7 @@
         <module name="wepay-microservices" />
         <module name="config-server" />
         <module name="apiGatway" />
+        <module name="wecommerce" />
         <module name="discovery" />
       </profile>
     </annotationProcessing>
@@ -21,6 +22,7 @@
       <module name="apiGatway" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="discovery" options="-parameters" />
+      <module name="wecommerce" options="-parameters" />
     </option>
   </component>
 </project>
