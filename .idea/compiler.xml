@@ -11,6 +11,7 @@
         <module name="apiGatway" />
         <module name="wecommerce" />
         <module name="discovery" />
+        <module name="wepay" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
       <module name="config-server" options="-parameters" />
       <module name="discovery" options="-parameters" />
       <module name="wecommerce" options="-parameters" />
+      <module name="wepay" options="-parameters" />
     </option>
   </component>
 </project>
