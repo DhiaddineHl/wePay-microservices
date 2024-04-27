@@ -8,9 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthRequest {
+public class BusinessRegisterRequest {
 
+    private String name;
     private String email;
     private String password;
+    private String business_name;
+    private String tax_registration_number;
 
 }
