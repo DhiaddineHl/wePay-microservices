@@ -36,7 +36,7 @@ public class PaymentService {
         BusinessUser beneficiary = payment.getBeneficiary();
 
         payer.setBalance(payer.getBalance() - payment.getTotal());
-        beneficiary.setBalance(beneficiary.getBalance() - payment.getTotal());
+        beneficiary.setBalance(beneficiary.getBalance() + payment.getTotal());
 
         particularUserRepository.save(payer);
         businessUserRepository.save(beneficiary);
