@@ -71,6 +71,7 @@ public class AuthenticationService {
                 .tax_registration_number(request.getTax_registration_number())
                 .business_name(request.getBusiness_name())
                 .build();
+
         var savedUser = repository.save(businessUser);
         var jwtToken = jwtService.generateToken(savedUser);
         saveUserToken(savedUser,jwtToken);

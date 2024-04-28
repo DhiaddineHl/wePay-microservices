@@ -30,7 +30,7 @@ public class AuthenticationController {
     };
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthResponse> Authenticate(
+    public ResponseEntity<AuthResponse> authenticate(
             @RequestBody AuthRequest authenticationRequest
     ){
         return ResponseEntity.ok(authService.authenticate(authenticationRequest));
