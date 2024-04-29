@@ -13,7 +13,8 @@ import java.util.List;
 public class BusinessUserService {
 
     private final TokenRepository tokenRepository;
-    private ProductClient client;
+    private final ProductClient client;
+
     public List<Product> getSellerProducts(String authHeader) {
 
         String sellerToken = authHeader.substring(7);
