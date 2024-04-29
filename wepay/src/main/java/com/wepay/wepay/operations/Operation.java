@@ -1,10 +1,8 @@
 package com.wepay.wepay.operations;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.wepay.wepay.user.AppUser;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,5 +19,12 @@ public class Operation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private OperationType type;
+    private Float operatedBalance;
+    private OperationStatus status;
+
+    @ManyToOne
+    private AppUser sender;
+    @ManyToOne
+    private AppUser receiver;
 
 }

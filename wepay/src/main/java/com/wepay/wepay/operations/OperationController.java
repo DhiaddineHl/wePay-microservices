@@ -36,4 +36,11 @@ public class OperationController {
         service.confirmRequest(authHeader, requestId);
     }
 
+    @PutMapping("/decline-request/{requestId}")
+    public void declineRequest(
+            @PathVariable("requestId") Integer requestId
+    ){
+        service.declineRequest(requestId);
+    }
+
 }
