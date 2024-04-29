@@ -1,5 +1,4 @@
-package com.wepay.wecommerce.product;
-
+package com.wepay.wepay.product;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +25,5 @@ public class Product {
     private Integer rating;
     private String image_url;
 
-    private Integer sellerId;
-
+    private Integer seller_id;
 }

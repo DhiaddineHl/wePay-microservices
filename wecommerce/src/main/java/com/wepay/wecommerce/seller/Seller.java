@@ -1,4 +1,4 @@
-package com.wepay.wecommerce.product;
+package com.wepay.wecommerce.seller;
 
 
 import jakarta.persistence.Entity;
@@ -6,26 +6,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Product {
+@Entity
+public class Seller {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    private String description;
-    private Float price;
-    private Integer rating;
-    private String image_url;
-
-    private Integer sellerId;
+    private String email;
+    private String password;
+    private Float balance;
+    private AccountType accountType = AccountType.BUSINESS;
+    private String business_name;
+    private String tax_registration_number;
 
 }

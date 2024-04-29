@@ -9,10 +9,14 @@ server:
 spring:
   application:
     name: wepay
+    configuration :
+      products-url : http://localhost:8090/api/v1/products
     security:
       jwt:
         secret-key: 3e58950f9b875dddf66b25bd1b846e78c8c2bb923ee8cbd7f72695aefb626be3
         expiration: 86400000
+
+
 
   config:
     import: optional:configserver:http://localhost:8888

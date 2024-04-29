@@ -23,7 +23,7 @@ public class ProductService {
     public List<Product> getProductsBySeller(
             Integer seller_id
     ){
-        return null;
+        return repository.findAllBySellerId(seller_id);
     }
 
     public void createProduct(
