@@ -10,13 +10,14 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final TokenRepository tokenRepository;
-    public AppUser getUserByToken(String authHeader) {
+    public Integer getUserIdByToken(String authHeader) {
 
         String token = authHeader.substring(7);
 
         return tokenRepository.findByToken(token)
                 .orElseThrow()
-                .getUser();
+                .getUser()
+                .getId();
 
     }
 }

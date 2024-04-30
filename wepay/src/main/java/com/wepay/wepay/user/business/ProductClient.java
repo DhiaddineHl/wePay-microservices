@@ -16,4 +16,6 @@ public interface ProductClient {
         @PathVariable("seller_id") Integer seller_id
     );
 
+
+
 }

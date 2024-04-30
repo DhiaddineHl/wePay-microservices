@@ -9,6 +9,8 @@ server:
 spring:
   application:
     name: wecommerce
+    configuration :
+      user-url : http://localhost:8070/api/v1/users
   config:
     import: optional:configserver:http://localhost:8888
   datasource:
@@ -18,6 +20,6 @@ spring:
     password: pass
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect

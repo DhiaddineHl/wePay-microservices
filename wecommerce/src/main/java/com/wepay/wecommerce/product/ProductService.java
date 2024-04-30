@@ -11,6 +11,7 @@ import java.util.List;
 public class ProductService {
 
     private final ProductRepository repository;
+    private final UserClient client;
 
     public List<Product> getAllProducts (){
         return repository.findAll();
@@ -30,11 +31,14 @@ public class ProductService {
             ProductCreationRequest request,
             String user_token
     ){
+        Integer sellerId = client.findSellerByToken(user_token);
+
         Product product = Product.builder()
                 .name(request.getName())
                 .description(request.getDescription())
                 .price(request.getPrice())
                 .image_url(request.getImage_url())
+                .sellerId(sellerId)
                 .build();
 
         repository.save(product);

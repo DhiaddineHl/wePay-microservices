@@ -16,10 +16,10 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/byToken")
-    public ResponseEntity<AppUser> getUserByToken(
+    public ResponseEntity<Integer> getUserIdByToken(
             @RequestHeader("Authorization") String authHeader
     ){
-        return ResponseEntity.ok(userService.getUserByToken(authHeader));
+        return ResponseEntity.ok(userService.getUserIdByToken(authHeader));
     }
 
 }
