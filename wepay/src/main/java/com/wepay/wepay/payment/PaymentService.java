@@ -1,7 +1,6 @@
 package com.wepay.wepay.payment;
 
 
-import com.wepay.wepay.payment.dtos.CollaboratorsAddingRequest;
 import com.wepay.wepay.payment.dtos.PaymentCreationRequest;
 import com.wepay.wepay.payment.dtos.ClassicPaymentExecutionRequest;
 import com.wepay.wepay.payment.dtos.PaymentExecutionResponse;
@@ -115,11 +114,5 @@ public class PaymentService {
         return payment.getId();
     }
 
-    public void addPayersToSplitPayment(
-            Integer splitPaymentId,
-            CollaboratorsAddingRequest request
-    ){
-        var payment = paymentRepository.findById(splitPaymentId).orElseThrow();
-    }
 
 }

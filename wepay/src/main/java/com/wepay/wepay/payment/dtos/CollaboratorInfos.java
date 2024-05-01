@@ -1,18 +1,19 @@
 package com.wepay.wepay.payment.dtos;
 
-import com.wepay.wepay.user.particular.ParticularUser;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 
-@Data
+
+@Getter
 @AllArgsConstructor
-@NoArgsConstructor
 public class CollaboratorInfos {
 
-    private ParticularUser collaborator;
-    private Float collaboratorPercentage;
-    private boolean isCollaboratorConfirmed;
+    private final String collaboratorEmail;
+    private final Float collaboratorPercentage;
 
 }
