@@ -1,7 +1,7 @@
 package com.wepay.wepay.payment;
 
 
-import com.wepay.wepay.payment.dtos.ClassicPaymentCreationRequest;
+import com.wepay.wepay.payment.dtos.PaymentCreationRequest;
 import com.wepay.wepay.payment.dtos.ClassicPaymentExecutionRequest;
 import com.wepay.wepay.payment.dtos.PaymentExecutionResponse;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ public class PaymentController {
 
     @PostMapping("/classic/create")
     public ResponseEntity<Integer> createPayment(
-            @RequestBody ClassicPaymentCreationRequest request)
+            @RequestBody PaymentCreationRequest request)
     {
         return ResponseEntity.ok(paymentService.createClassicPayment(request));
     }

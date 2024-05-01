@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClassicPaymentCreationRequest {
+public class PaymentCreationRequest {
 
     Integer beneficiaryId;
     Float amount;

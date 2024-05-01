@@ -1,13 +1,12 @@
 package com.wepay.wepay.payment;
 
 
-import com.wepay.wepay.payment.dtos.ClassicPaymentCreationRequest;
+import com.wepay.wepay.payment.dtos.CollaboratorsAddingRequest;
+import com.wepay.wepay.payment.dtos.PaymentCreationRequest;
 import com.wepay.wepay.payment.dtos.ClassicPaymentExecutionRequest;
 import com.wepay.wepay.payment.dtos.PaymentExecutionResponse;
 import com.wepay.wepay.token.TokenRepository;
-import com.wepay.wepay.user.AccountType;
 import com.wepay.wepay.user.AppUser;
-import com.wepay.wepay.user.UserRepository;
 import com.wepay.wepay.user.business.BusinessUser;
 import com.wepay.wepay.user.business.BusinessUserRepository;
 import com.wepay.wepay.user.particular.ParticularUser;
@@ -41,7 +40,7 @@ public class PaymentService {
         particularUserRepository.save(payer);
         businessUserRepository.save(beneficiary);
     }
-    public Integer createClassicPayment(ClassicPaymentCreationRequest request) {
+    public Integer createClassicPayment(PaymentCreationRequest request) {
 
         var beneficiary = businessUserRepository.findById(request.getBeneficiaryId())
                 .orElseThrow();
@@ -95,4 +94,32 @@ public class PaymentService {
                 .responseMessage("Payment completed successfully!")
                 .build();
     }
+
+    public Integer createSplitPayment(PaymentCreationRequest request) {
+
+        var beneficiary = businessUserRepository.findById(request.getBeneficiaryId())
+                .orElseThrow();
+
+        Payment payment = Payment.builder()
+                .beneficiary(beneficiary)
+                .total(request.getAmount())
+                .paymentMethod(PaymentMethod.SPLIT)
+                .paymentStatus(PaymentStatus.PENDING)
+                .timeStamp(
+                        new SimpleDateFormat("dd MMMM yyyy").format(new Date())
+                )
+                .build();
+
+        paymentRepository.save(payment);
+
+        return payment.getId();
+    }
+
+    public void addPayersToSplitPayment(
+            Integer splitPaymentId,
+            CollaboratorsAddingRequest request
+    ){
+        var payment = paymentRepository.findById(splitPaymentId).orElseThrow();
+    }
+
 }
