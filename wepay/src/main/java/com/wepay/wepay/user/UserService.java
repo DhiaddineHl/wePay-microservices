@@ -20,4 +20,13 @@ public class UserService {
                 .getId();
 
     }
+
+    public Float getUserBalance(String authHeader) {
+        String token = authHeader.substring(7);
+
+        return tokenRepository.findByToken(token)
+                .orElseThrow()
+                .getUser()
+                .getBalance();
+    }
 }

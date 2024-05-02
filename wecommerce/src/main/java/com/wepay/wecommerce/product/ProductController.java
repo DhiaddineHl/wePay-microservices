@@ -33,6 +33,13 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProductsBySeller(seller_id));
     }
 
+    @GetMapping("/seller-token")
+    public ResponseEntity<List<Product>> getProductsBySeller(
+            @RequestHeader("Authorization") String user_token
+    ){
+        return ResponseEntity.ok(productService.getProductsBySellerToken(user_token));
+    }
+
     @PostMapping
     public void createProduct(
             @RequestBody ProductCreationRequest request,

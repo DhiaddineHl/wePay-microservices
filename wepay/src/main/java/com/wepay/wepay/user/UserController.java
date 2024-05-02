@@ -22,4 +22,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserIdByToken(authHeader));
     }
 
+    @GetMapping("/balance")
+    public ResponseEntity<Float> getUserBalance(
+            @RequestHeader("Authorization") String authHeader
+    ){
+        return ResponseEntity.ok(userService.getUserBalance(authHeader));
+    }
+
 }

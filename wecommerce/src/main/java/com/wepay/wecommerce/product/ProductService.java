@@ -44,4 +44,10 @@ public class ProductService {
         repository.save(product);
     }
 
+    public List<Product> getProductsBySellerToken(String user_token) {
+        Integer sellerId = client.findSellerByToken(user_token);
+
+        return repository.findAllBySellerId(sellerId);
+
+    }
 }
